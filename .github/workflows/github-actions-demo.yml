@@ -22,10 +22,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install dependencies
-        uses: npm i
+        run: npm i
       - name: build prod
-        uses: npm run build:prod
+        run: npm run build:prod
       - name: check eslint
-        uses: npm i lint:ts
+        run: npm i lint:ts
       - name: check unit tests
-        uses: npm run unit
+        run: npm run unit
