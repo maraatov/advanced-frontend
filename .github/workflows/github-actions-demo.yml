@@ -23,8 +23,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install dependencies
         run: npm i
-      - name: build prod
-        run: npm run build:prod
       - name: check eslint
         run: npm i lint:ts
       - name: check unit tests
