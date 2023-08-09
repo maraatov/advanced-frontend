@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 describe('Button tests', () => {
     test('loads and displays greeting', async () => {
@@ -10,7 +10,7 @@ describe('Button tests', () => {
     });
 
     test('to have class', async () => {
-        render(<Button className={ThemeButton.CLEAR}>TEST</Button>);
+        render(<Button className={ButtonTheme.CLEAR}>TEST</Button>);
         expect(screen.getByText('TEST')).toHaveClass('clear');
     });
 });
