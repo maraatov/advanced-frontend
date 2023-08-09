@@ -5,10 +5,14 @@ import {
     ThemeDecorator
 } from '../../../../shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../../../app/providers/ThemeProvider';
+import {
+    RouterDecorator
+} from '../../../../shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
     title: 'widgets/Sidebar',
-    component: Sidebar
+    component: Sidebar,
+    decorators: [RouterDecorator]
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;

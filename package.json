@@ -15,7 +15,10 @@
     "storybook": "start-storybook -p 6006 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook",
     "test:ui": "npx loki test",
-    "test:ui:ok": "npx loki approve"
+    "test:ui:ok": "npx loki approve",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html"
   },
   "keywords": [],
   "author": "",
@@ -48,6 +51,7 @@
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
+    "reg-cli": "^0.17.6",
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",

@@ -3,4 +3,4 @@ export function buildSvgLoader() {
         test: /\.svg$/,
         use: ['@svgr/webpack']
     };
-};
+}
