@@ -1,16 +1,14 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
-import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { BuildPaths } from '../build/types/config';
 
-// Деструктурирование, типы тоже так задаются в - {}
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config }: {config: webpack.Configuration}) => {
     const paths: BuildPaths = {
+        build: '',
         html: '',
         entry: '',
-        build: '',
-        src: path.resolve(__dirname, '..', '..', 'src')
+        src: path.resolve(__dirname, '..', '..', 'src'),
     };
     config.resolve.modules.push(paths.src);
     config.resolve.extensions.push('.ts', '.tsx');
@@ -24,7 +22,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
         return rule;
     });
 
-    config.module.rules.push(buildSvgLoader());
+    config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    });
     config.module.rules.push(buildCssLoader(true));
 
     return config;

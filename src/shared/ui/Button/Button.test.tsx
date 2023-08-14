@@ -1,16 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { Button, ButtonTheme } from './Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
-describe('Button tests', () => {
-    test('loads and displays greeting', async () => {
+describe('Button', () => {
+    test('Test render', () => {
         render(<Button>TEST</Button>);
-        expect(screen.getByText('TEST'))
-            .toBeInTheDocument();
+        expect(screen.getByText('TEST')).toBeInTheDocument();
     });
 
-    test('to have class', async () => {
-        render(<Button className={ButtonTheme.CLEAR}>TEST</Button>);
+    test('Test clear theme', () => {
+        render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
         expect(screen.getByText('TEST')).toHaveClass('clear');
+        screen.debug();
     });
 });
