@@ -2,7 +2,6 @@ import { counterActions, counterReducer } from './counterSlice';
 import { CounterSchema } from '../types/counterSchema';
 
 describe('counterSlice.test', () => {
-
   test('increment', () => {
     const state: CounterSchema = { value: 10 };
     expect(

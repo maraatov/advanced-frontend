@@ -6,7 +6,7 @@ i18n
     .init({
         lng: 'en',
         fallbackLng: 'en',
-        resources: { ru: { translations: {} } }
+        resources: { ru: { translations: {} } },
     });
 
 export default i18n;

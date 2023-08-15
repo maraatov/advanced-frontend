@@ -3,6 +3,6 @@ import { Story } from '@storybook/react';
 
 export const StyleDecorator = (StoryComponent: Story) => (
     <div>
-        <StoryComponent/>
+        <StoryComponent />
     </div>
 );
